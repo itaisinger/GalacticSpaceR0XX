@@ -32,7 +32,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 * Game Maker Studio 2
 * Ableton
-* <href link="https://codemanu.itch.io/particle-fx-designer">Pixel fx Designer</href>
+* <a href="https://codemanu.itch.io/particle-fx-designer">Pixel fx Designer</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
