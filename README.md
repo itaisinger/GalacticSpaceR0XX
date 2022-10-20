@@ -15,10 +15,8 @@
     <img src="Images/logo.png" alt="Logo" width="691" height="251">
   </a>
 
-<h3 align="center">project_title</h3>
-
   <p align="center">
-    project_description
+    An arcade style game made by Itai Singer
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
