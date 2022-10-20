@@ -1,0 +1,19 @@
+//to do list
+make the rocket bip more sharp
+make the spawnset path not reset 
+
+
+bug fixes:
+	vfx sometimes dont unfreeze when unpausing the game
+	wierd object spawns sometimes around 2:00
+	
+to do list:
+	balance game
+	make trailer
+	make the spawnset editor
+
+extra do to list:
+	add mines
+	make background stars
+	make the shots seperate
+	astroids sprites rework

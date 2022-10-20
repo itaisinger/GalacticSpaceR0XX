@@ -1,0 +1,9 @@
+{
+  "extensionId": {
+    "name": "LootLockerLeaderboards",
+    "path": "extensions/LootLockerLeaderboards/LootLockerLeaderboards.yy"
+  },
+  "resourceVersion": "1.0",
+  "resourceType": "GMExtensionConfigSet",
+  "configurables": null
+}

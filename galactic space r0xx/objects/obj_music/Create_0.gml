@@ -1,0 +1,1 @@
+global.music_vol_mult	= 1;

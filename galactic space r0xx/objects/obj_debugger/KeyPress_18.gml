@@ -1,0 +1,1 @@
+if(instance_exists(obj_player)) global.player_inst.progress(200);

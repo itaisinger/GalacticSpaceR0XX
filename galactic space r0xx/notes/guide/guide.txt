@@ -1,0 +1,92 @@
+/////// new player controls /////////
+input_dir holds a var that is an enum of a 8 sides direction.
+after getting the inputs for the arrow keys, there is a switch statement that determines which
+direction is being held atm, accounting for direction combinations.
+
+angel_dest is updated using the input_dir, and the ship will lerp the image angle in its direction,
+accounting for which direction is closer.
+
+boost options:
+ - when the image_angle matches the dest the boost will activate automatically
+ - clicking the current direction again (requires input buffers to allow clicking diagonals easily)
+
+
+
+
+//// background planets ////
+
+at the start of the game a seed will be generated. 
+that seed will be combined together with the x and y coordinate of the current background "tile",
+and from that it will generate planets.
+something like:
+last digit/2 - num of planets (max 4)
+then loop through the next digits to determine:
+	planet size
+	planet sprite
+	planet turn speed (image speed)
+	maybe even colors.
+
+seeds will be calculated only when the player leaves a tile to reduce performance cost.
+they will be stored in a 2d array.
+
+
+
+//// spawn system ////
+obj_meteor_spawner has a list of spawn arrays. each array contains how long to use it,
+and another array of every type of meteor to spawn in this period.
+0 - number of seconds to use this spawnset
+[
+1 - meteor type to use
+2 - respawn timer
+3 - total spawn number
+] 
+
+//spawn alarms
+the spawner object has a system that essentially works like the built in alarms, just to minimise black box elements.
+its a list called list_alarms. Every var counts down for every meteor type that spawns in this spawnset,
+and when i reaches 0 it spawns it and resets itself.
+
+
+
+//// hp and upgrades bars system /////
+
+obj player has a list_bars that is a list of progress on each of the bars, both hp and upgrades.
+when a meteor is destroyed, it uses the progress(reward) function. this sends the player the score of that meteor.
+the function loops thourgh all the bars and fills the points at the leftmost bars.
+when a bar is filled, it triggers the corresponding event from the list_bars_events list.
+
+these events can be updated from within themselves by setting the rightmost bar's event to something special.
+
+upgrades list:
+	boost speed up
+	damage up
+	max hp up
+	double score
+
+when the player has 6 hp bars filled, hell get double points. the check will be done by the player.
+
+
+/// alternating between different shots ///
+the player has a current_shots var that holds the current shots, an index out of an enum.
+he has a function set_shot() the is given an index out of the enum and it sets the corresponding sprites and sounds,
+as well as stats.
+it is called by itself when unlocking the red and purple shots, and can be then called by pressing Cntrl to switch between the two afformentioned shots.
+
+
+
+
+////////////////////// SPAWNSET EDITOR /////////////////////
+
+the spawnset editor is a seperate application.
+
+
+
+
+
+
+
+
+
+
+
+
