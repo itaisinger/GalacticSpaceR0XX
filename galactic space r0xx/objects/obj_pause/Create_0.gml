@@ -85,7 +85,8 @@ ds_list_add(menu_controls,["shoot       S,space or down arrow key",				function(
 ds_list_add(menu_controls,["toggle shots type                      contorl",	function(){}])
 ds_list_add(menu_controls,["back",												function(){change_menu(menu_main)}])
 
-//sounds settings
+//settings
+ds_list_add(menu_sounds,["toggle fullscreen",	function(){global.fullscreen = !global.fullscreen; window_set_fullscreen(global.fullscreen);}])
 ds_list_add(menu_sounds,["music volume +",	music_vol_up])
 ds_list_add(menu_sounds,["music volume -",	music_vol_down])
 ds_list_add(menu_sounds,["sfx volume +",	sfx_vol_up])

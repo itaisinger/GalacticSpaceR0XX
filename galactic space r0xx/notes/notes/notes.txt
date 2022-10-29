@@ -1,19 +1,16 @@
-//to do list
-make the rocket bip more sharp
-make the spawnset path not reset 
-
 
 bug fixes:
 	vfx sometimes dont unfreeze when unpausing the game
-	wierd object spawns sometimes around 2:00
+	transition glitch
+	contrl in the menu
 	
 to do list:
-	balance game
-	make trailer
-	make the spawnset editor
+	post proccessing
+	try to make the camera angle stick to the player
+	tutorial meteor
+	add controller support
 
 extra do to list:
 	add mines
-	make background stars
-	make the shots seperate
+	powerups
 	astroids sprites rework

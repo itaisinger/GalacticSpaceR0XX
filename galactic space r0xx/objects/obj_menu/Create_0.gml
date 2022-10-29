@@ -13,11 +13,13 @@ global.game_paused = 0;
 global.high_score = 0;
 global.music_volume = 0.5;
 global.sfx_volume = 0.5;
+global.fullscreen = 1;
 
 //file and saving system
 global.map_file = ds_map_create();
 ds_map_add(global.map_file,"music",	0.5);
 ds_map_add(global.map_file,"sfx",	0.5);
+ds_map_add(global.map_file,"full",	1);
 ds_map_add(global.map_file,"score",	0);
 
 #macro FILE_NAME working_directory+"homework.space"
@@ -103,10 +105,6 @@ function reset_highscore()
 	global.high_score = 0;
 	save_gamefile();
 }
-function update_boards()
-{
-	
-}
 
 function wave_ui(argument0, argument1, argument2, argument3)
 {
@@ -153,7 +151,7 @@ function draw_leaderboard(_x,_y,margin,top_text,ranks,names,scores)
 #endregion
 
 global.version = 1.11;
-window_set_fullscreen(1);
+window_set_fullscreen(global.fullscreen);
 game_set_speed(20,gamespeed_fps);
 
 //content
@@ -171,7 +169,7 @@ is_typing = 0;
 
 //main menu
 ds_list_add(menu_main,["start game",	function(){obj_transition.transition(rm_main)}])
-ds_list_add(menu_main,["leaderboards",	function(){update_boards(); change_menu(menu_leaderboards)}])
+ds_list_add(menu_main,["leaderboards",	function(){change_menu(menu_leaderboards)}])
 ds_list_add(menu_main,["controls",		function(){change_menu(menu_controls)}])
 ds_list_add(menu_main,["settings",		function(){change_menu(menu_settings)}])
 ds_list_add(menu_main,["quit",			function(){game_end()}])
@@ -184,12 +182,13 @@ ds_list_add(menu_leaderboards,["reset local highscore",		function(){reset_highsc
 ds_list_add(menu_controls,["turn         A/D or left/right arrow keys",			function(){if(sfx_i != 1) sfx_i = 0}])
 ds_list_add(menu_controls,["boost                      W,Z or up arrow key",	function(){if(sfx_i != 3) sfx_i = 2}])
 ds_list_add(menu_controls,["shoot       S,space or down arrow key",				function(){if(sfx_i != 5) sfx_i = 4}])
-ds_list_add(menu_controls,["toggle shots type                      contorl",	function(){}])
+ds_list_add(menu_controls,["toggle shots type                      control",	function(){}])
 ds_list_add(menu_controls,["back",												function(){change_menu(menu_main)}])
 
 //settings
 ds_list_add(menu_settings,["sounds",	function(){change_menu(menu_sounds);}])
 ds_list_add(menu_settings,["spawnsets",	function(){change_menu(menu_spawnsets);}])
+ds_list_add(menu_settings,["toggle fullscreen",	function(){global.fullscreen = !global.fullscreen; window_set_fullscreen(global.fullscreen);}])
 ds_list_add(menu_settings,["back",		function(){change_menu(menu_main); save_gamefile();}])
 
 //spawnsets
@@ -237,3 +236,6 @@ menu_option_yoff = 0;
 ui_time = 0;
 prev_time = 0;
 wave_height = 2;
+
+//post proccessing
+//instance_create_depth(0,0,0,obj_post_proccessing);

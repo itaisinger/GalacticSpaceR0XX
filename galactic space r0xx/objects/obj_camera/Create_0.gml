@@ -18,7 +18,7 @@ ydest = 0;
 
 sprite_index = spr_pixel;
 
-window_set_fullscreen(1);
+//window_set_fullscreen(1);
 
 //functions
 function change_res(width,height)

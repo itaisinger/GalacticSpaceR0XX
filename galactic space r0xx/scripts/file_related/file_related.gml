@@ -7,6 +7,7 @@ function save_gamefile()
 	global.map_file[? "music"] = global.music_volume
 	global.map_file[? "sfx"]	= global.sfx_volume	
 	global.map_file[? "score"]	= global.high_score	
+	global.map_file[? "full"]	= global.fullscreen	
 	
 	//delete previous file
 	file_delete(FILE_NAME);
@@ -42,6 +43,7 @@ function load_gamefile()
 	global.music_volume = global.map_file[? "music"];
 	global.sfx_volume	= global.map_file[? "sfx"];
 	global.high_score	= global.map_file[? "score"];
+	global.fullscreen	= global.map_file[? "full"];
 }
 function spawnset_save(spawnset,file_path)
 {

@@ -73,6 +73,7 @@ zoom = lerp(zoom,zoom_dest,0.05);
 zoom = clamp(zoom,min_zoom,max_zoom);
 
 camera_set_view_pos(cam,x-_hw,y-_hh);
+
 camera_set_view_size(cam,base_w*zoom,base_h*zoom);
 
 image_xscale = base_w*zoom;
