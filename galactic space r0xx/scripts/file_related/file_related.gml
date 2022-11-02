@@ -8,6 +8,7 @@ function save_gamefile()
 	global.map_file[? "sfx"]	= global.sfx_volume	
 	global.map_file[? "score"]	= global.high_score	
 	global.map_file[? "full"]	= global.fullscreen	
+	global.map_file[? "tut"]	= global.do_tutorial;
 	
 	//delete previous file
 	file_delete(FILE_NAME);
@@ -44,6 +45,7 @@ function load_gamefile()
 	global.sfx_volume	= global.map_file[? "sfx"];
 	global.high_score	= global.map_file[? "score"];
 	global.fullscreen	= global.map_file[? "full"];
+	global.do_tutorial	= global.map_file[? "tut"];
 }
 function spawnset_save(spawnset,file_path)
 {

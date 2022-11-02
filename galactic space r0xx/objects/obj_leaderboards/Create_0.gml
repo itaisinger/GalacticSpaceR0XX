@@ -4,3 +4,5 @@ var _version		 = string(global.version);
 var _developmentMode = true;
 
 LootLockerInitialize(_gameAPIkey,_version,_developmentMode,global.leaderboardsID);
+
+depth = 5;

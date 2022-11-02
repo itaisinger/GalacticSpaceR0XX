@@ -45,7 +45,7 @@ else
 	turn_current = approach(turn_current,0,turn_accel*0.2);
 }
 
-var _angles_to_turn = turn_current;
+var _angles_to_turn = turn_current * can_turn;
 
 //recoil
 if(shooting_this_frame) 
@@ -66,6 +66,7 @@ angle = lerp(angle,angle_max*_turn,0.1);
 
 boost_lvlup_a = approach(boost_lvlup_a,0,0.05);
 
+flash_a = approach(flash_a,0,0.03);
 
 //// movement ////
 

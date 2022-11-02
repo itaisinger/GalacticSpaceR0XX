@@ -14,6 +14,7 @@ global.high_score = 0;
 global.music_volume = 0.5;
 global.sfx_volume = 0.5;
 global.fullscreen = 1;
+global.do_tutorial = 1;
 
 //file and saving system
 global.map_file = ds_map_create();
@@ -21,6 +22,7 @@ ds_map_add(global.map_file,"music",	0.5);
 ds_map_add(global.map_file,"sfx",	0.5);
 ds_map_add(global.map_file,"full",	1);
 ds_map_add(global.map_file,"score",	0);
+ds_map_add(global.map_file,"tut",1);
 
 #macro FILE_NAME working_directory+"homework.space"
 
@@ -105,6 +107,16 @@ function reset_highscore()
 	global.high_score = 0;
 	save_gamefile();
 }
+function toggle_tutorial()
+{
+	global.do_tutorial = !global.do_tutorial;
+	
+	instance_destroy(obj_text);
+	var _text = global.do_tutorial ? "tutorial activated" : "tutorial deactivated";
+	var _e = create_text(0,0,_text,c_white,c_white,0);
+	_e.font = font_small;
+	_e.yoff = 0;
+}
 
 function wave_ui(argument0, argument1, argument2, argument3)
 {
@@ -150,7 +162,7 @@ function draw_leaderboard(_x,_y,margin,top_text,ranks,names,scores)
 
 #endregion
 
-global.version = 1.11;
+global.version = 1.12;
 window_set_fullscreen(global.fullscreen);
 game_set_speed(20,gamespeed_fps);
 
@@ -189,6 +201,7 @@ ds_list_add(menu_controls,["back",												function(){change_menu(menu_main)}
 ds_list_add(menu_settings,["sounds",	function(){change_menu(menu_sounds);}])
 ds_list_add(menu_settings,["spawnsets",	function(){change_menu(menu_spawnsets);}])
 ds_list_add(menu_settings,["toggle fullscreen",	function(){global.fullscreen = !global.fullscreen; window_set_fullscreen(global.fullscreen);}])
+ds_list_add(menu_settings,["toggle tutorial",	toggle_tutorial])
 ds_list_add(menu_settings,["back",		function(){change_menu(menu_main); save_gamefile();}])
 
 //spawnsets
@@ -236,6 +249,3 @@ menu_option_yoff = 0;
 ui_time = 0;
 prev_time = 0;
 wave_height = 2;
-
-//post proccessing
-//instance_create_depth(0,0,0,obj_post_proccessing);

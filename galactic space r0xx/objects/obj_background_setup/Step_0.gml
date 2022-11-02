@@ -7,5 +7,8 @@ if(count < 0)
 	obj_background.sprite_index = bg_sprite;
 	obj_background.setup_phase_over = 1;
 	instance_destroy(obj_bg_star);
+	
+	if(surface_exists(surface))
+		surface_free(surface)
 	instance_destroy();
 }

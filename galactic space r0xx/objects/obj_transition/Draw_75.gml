@@ -1,14 +1,11 @@
-/// @description Insert description here
-// You can write your code in this editor
-
 var _res = [display_get_gui_width(),display_get_gui_height()];
 if(update_sprite)
 {
 	update_sprite = 0;
 	trans_spr = sprite_create_from_surface(application_surface,0,0,_res[0],_res[1],0,0,_res[0]/2,_res[1]/2);
-
-	//sprite_save(trans_spr,0,working_directory + "trans.png")
 }
+
+
 
 if(state == TRANS_STATES.active and room == room_dest)
 {

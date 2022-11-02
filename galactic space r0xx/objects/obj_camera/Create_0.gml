@@ -9,6 +9,10 @@ max_zoom = 6//2.7;
 zoom_mult = 1;
 cam = view_get_camera(view_current);
 
+//snap to player at start
+x = obj_player.x;
+y = obj_player.y;
+
 resolution = [640,360];
 base_w = 2732;
 base_h = 1536;
@@ -18,7 +22,6 @@ ydest = 0;
 
 sprite_index = spr_pixel;
 
-//window_set_fullscreen(1);
 
 //functions
 function change_res(width,height)

@@ -2,15 +2,17 @@
 bug fixes:
 	vfx sometimes dont unfreeze when unpausing the game
 	transition glitch
-	contrl in the menu
 	
 to do list:
 	post proccessing
 	try to make the camera angle stick to the player
 	tutorial meteor
 	add controller support
+	make vfx self destruct faster when there are too many around
 
 extra do to list:
 	add mines
 	powerups
 	astroids sprites rework
+	
+make the tutorial spawn meteors and end

@@ -9,7 +9,7 @@ if(instance_exists(obj_player))
 }
 
 /// switch spawnset
-if(--spawnset_timer_remain <= 0)
+if(!global.tutorial_active and --spawnset_timer_remain <= 0)
 {
 	global.spawns = 0;
 	

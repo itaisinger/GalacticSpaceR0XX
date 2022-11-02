@@ -66,7 +66,7 @@ function wave_ui(argument0, argument1, argument2, argument3)
 
 #endregion
 
-//conent
+//content
 menu_main = ds_list_create();
 menu_controls = ds_list_create();
 menu_sounds = ds_list_create();

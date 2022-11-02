@@ -14,8 +14,8 @@ else
 		_e.time *= 1;
 		_e.size = max(1,reward_text_scale*(image_xscale/3));
 	
-		global.score += reward*6;
-		global.player_inst.progress(reward*6);
+		global.score += reward*2;
+		global.player_inst.progress(reward*2);
 	}
 	else
 	{
@@ -24,8 +24,8 @@ else
 		_e.time *= 1;
 		_e.size = max(1,image_xscale/4);
 	
-		global.score += reward*3;
-		global.player_inst.progress(reward*3);
+		global.score += reward;
+		global.player_inst.progress(reward);
 	}
 }
 

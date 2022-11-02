@@ -11,11 +11,11 @@ for(var i=-amounts[0][0]; i < amounts[0][1]; i++)
 		//draw the background sprite
 		draw_sprite_ext(sprite_index,image_index,_ox + i*(BGW)*_bg_s,_oy + j*(BGH)*_bg_s,	_bg_s,_bg_s,0,c_white,1);
 		
-		//planets
-		if(setup_phase_over and first_seeds_created)
-		{
-			//draw_planets(_ox + i*(BGW)*_bg_s,_oy + j*(BGH)*_bg_s, current_seeds[i + xamount/2][j + yamount/2]);
-		}
+		////planets
+		//if(setup_phase_over and first_seeds_created)
+		//{
+		//	//draw_planets(_ox + i*(BGW)*_bg_s,_oy + j*(BGH)*_bg_s, current_seeds[i + xamount/2][j + yamount/2]);
+		//}
 	}
 }
 

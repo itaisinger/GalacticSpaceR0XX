@@ -81,7 +81,10 @@ the spawnset editor is a seperate application.
 
 
 
-
+///// drawing shots ////
+there is a shot renderer object. this object draw event initiates a surface, 
+draws all the active shots to the surface by doing with(shots) drawing_function(), 
+and then drawing that surface to the screen with bloom.
 
 
 

@@ -16,6 +16,7 @@ uni_angle = shader_get_uniform(sh_tilt,"angle");
 iframes_alpha = 1;
 iframes_flicker_speed = 5;
 global.player_inst = id;
+flash_a = 0;
 
 //vfx
 boost_sprite = spr_boost;
@@ -47,6 +48,7 @@ turn_natural = 6;	//max turn speed in natural state
 turn_shoot = 2;		//max turn speed when shooting
 turn_boost = 1;		//max turn speed when boosting
 max_turning_spd = 8;//turning speed hard clamp
+can_turn = 1;		//used in the tutorial
 
 xmom = 0;			//xmomentum
 ymom = 0;			//ymomentum
@@ -200,6 +202,7 @@ function shoot()
 	/*/
 	
 	var _blasters = [choose(0,1),choose(0,1)];
+	var _num = 2 - (level == 0);	//in the tutorial, shoot just one shot.
 	
 	for(var i=0; i < 2; i++)
 	{
@@ -218,9 +221,15 @@ function shoot()
 	
 		//left or right blasters
 		var _xoff = image_xscale*(-14 + i*28);	//fancy way of saying "first one is -14 second is 14."
-		_shot.x += lengthdir_x(_xoff,image_angle);
-		_shot.y += lengthdir_y(_xoff,image_angle);
-	
+		
+		if(level == 0)
+			_xoff = 0;
+		else
+		{
+			_shot.x += lengthdir_x(_xoff,image_angle);
+			_shot.y += lengthdir_y(_xoff,image_angle);
+		}
+		
 		//yoff: roll an image index, shoot from bottom or top blasters. if rolled top, give it a yoff.
 		_shot.image_index = _blasters[i];//(++flicker)%2;
 		if(_shot.image_index)
@@ -440,6 +449,7 @@ function bar_level3()
 	//vfx
 	var _vfx = create_effect(spr_lvlup,4,0,x,y);
 	_vfx.anchor_obj = self;
+	flash_a = 1.2;
 	
 	//set new ship sprite
 	
@@ -471,11 +481,15 @@ function bar_level2()
 	//vfx
 	var _vfx = create_effect(spr_lvlup,4,0,x,y);
 	_vfx.anchor_obj = self;
+	flash_a = 1.2;
 	
 	//upgrade
 	shots_unlocked[SHOTS.red] = 1;
 	set_shots(SHOTS.red);
 	level++;
+	
+	//make the camera zoom out
+	obj_camera.min_zoom_def += 0.2;
 	
 	//set new event
 	list_bars_events[|5] = bar_level3;
@@ -501,6 +515,7 @@ function bar_level1()
 	_vfx.anchor_obj = self;
 	_vfx.depth = DEPTH.effect_high;
 	air_wave();
+	flash_a = 1.2;
 	
 	//make the camera zoom out
 	obj_camera.min_zoom_def += 0.4;
@@ -527,6 +542,50 @@ function bar_level1()
 	list_bar_max[|4] = 200;
 	list_bar_max[|5] = 200;
 }
+function bar_level0()
+{
+	sprite_index = spr_spaceship;
+	level = 1;
+	can_turn = 1;
+	flash_a = 1.5;
+	
+	list_bar_max[|0] = 100;
+	list_bar_max[|1] = 100;
+	list_bar_max[|2] = 100;
+	list_bar_max[|3] = 150;
+	list_bar_max[|4] = 150;
+	list_bar_max[|5] = 150;
+
+	list_bars[|0] = list_bar_max[|0];
+	list_bars[|1] = list_bar_max[|1];
+	list_bars[|2] = list_bar_max[|2];
+	list_bars[|3] = 0;
+	list_bars[|4] = 0;
+	list_bars[|5] = 0;
+	
+	//set new event
+	list_bars_events[|5] = bar_level1;
+}
+setup_tutorial = function()
+{
+	level = 0;
+	sprite_index = spr_spaceship_0;
+	can_turn = 0;
+	
+	for(var i=0; i < 6; i++)
+		list_bar_max[|i] = 10;
+		
+	list_bars[|0] = 10;
+	list_bars[|1] = 10;
+	list_bars[|2] = 10;
+	list_bars[|3] = 0;
+	list_bars[|4] = 0;
+	list_bars[|5] = 0;
+	
+	//set new event
+	list_bars_events[|5] = bar_level0;
+}
+
 function air_wave()
 {
 	//push meteors away
@@ -565,8 +624,3 @@ with(obj_ui)
 	list_bars = other.list_bars;
 	list_bar_max = other.list_bar_max;
 }
-
-
-
-
-

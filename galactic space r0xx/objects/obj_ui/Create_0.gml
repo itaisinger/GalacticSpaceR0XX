@@ -16,6 +16,9 @@ bars_gap_max = 40;
 bars_gap = bars_gap_max;			//distance between the hp and the upgrade bars.
 bars_anim_prec = -1;	//approaches 1 when isnt -1.
 
+state = UI_STATES.tutorial;
+tutorial_done = 0;
+
 function flash_hp(index)
 {
 	list_flash_a[|index] = 1;
@@ -41,4 +44,10 @@ enum UI_ELEM{
 	continu,
 	highscore,
 	name,
+}
+
+enum UI_STATES{
+	natural,
+	death,		//includes the transition in
+	tutorial,	//includes the transition out
 }

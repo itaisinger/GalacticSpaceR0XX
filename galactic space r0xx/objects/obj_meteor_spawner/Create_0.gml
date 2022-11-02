@@ -1,6 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
 global.spawns = 0;
+depth = 5;
 
 //save some headache
 meteors_types_num = -1;
