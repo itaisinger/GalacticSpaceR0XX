@@ -1,6 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
-
 image_angle += spin_spd;
 
 if(anchor_obj != noone)

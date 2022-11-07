@@ -60,7 +60,7 @@ switch(stage)
 	_meteor.update();
 	
 	stage++;
-	alarm[0] = room_speed*8;
+	alarm[0] = room_speed*6;
 	
 	break;
 	///////////////

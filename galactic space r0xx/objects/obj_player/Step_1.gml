@@ -8,8 +8,8 @@ key_boost_pressed	= keyboard_check_pressed(ord("W")) or keyboard_check_pressed(v
 
 if(!can_turn)
 {
-	key_left = 0;
-	key_right = 0;
+	//key_left = 0;
+	//key_right = 0;
 	key_boost = 0;
 	key_boost_pressed = 0;
 }

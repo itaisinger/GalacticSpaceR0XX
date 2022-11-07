@@ -26,7 +26,15 @@ enum HOMING_PRIO{
 	hole
 }
 
-//if(!variable_global_exists("list_homing_prio"))
-//{
-//	global.list_homing_prio = ds_list_create();
-//}
+function draw_function()
+{
+	var _pos = [x,y];
+	x -= obj_camera.x + obj_camera.get_width()/2;
+	x -= obj_camera.y + obj_camera.get_height()/2;
+	
+	y -= yoff;
+	draw_self();
+	
+	x = _pos[0];
+	y = _pos[1];
+}

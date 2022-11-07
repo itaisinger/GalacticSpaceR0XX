@@ -30,6 +30,15 @@ function change_res(width,height)
 	view_set_hport(view_current,height);
 }
 
+function get_width()
+{
+	return base_w*zoom;
+}
+function get_height()
+{
+	return base_h*zoom;
+}
+
 surface_resize(application_surface,640,360);
 
 //var _follow = noone;

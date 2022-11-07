@@ -16,7 +16,11 @@ uni_angle = shader_get_uniform(sh_tilt,"angle");
 iframes_alpha = 1;
 iframes_flicker_speed = 5;
 global.player_inst = id;
+
+sur_flash = -1;
 flash_a = 0;
+uni_flash = shader_get_uniform(sh_tilt,"prec");
+
 
 //vfx
 boost_sprite = spr_boost;

@@ -1,5 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
 if(global.game_paused) exit;
 
 var _follow = noone;
@@ -61,9 +59,8 @@ else
 	zoom_mult = approach(zoom_mult,1,0.02);
 
 
-	
 #endregion
-	
+
 
 min_zoom = approach(min_zoom,min_zoom_dest,0.005);
 
@@ -78,4 +75,3 @@ camera_set_view_size(cam,base_w*zoom,base_h*zoom);
 
 image_xscale = base_w*zoom;
 image_yscale = base_h*zoom;
-

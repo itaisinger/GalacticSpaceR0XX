@@ -5,11 +5,8 @@ if(update_sprite)
 	trans_spr = sprite_create_from_surface(application_surface,0,0,_res[0],_res[1],0,0,_res[0]/2,_res[1]/2);
 }
 
-
-
 if(state == TRANS_STATES.active and room == room_dest)
 {
-	
 	/*/
 	create a surface at the size of the view
 	draw the screenshot to the surface

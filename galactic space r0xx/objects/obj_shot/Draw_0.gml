@@ -1,5 +1,2 @@
-/// @description Insert description here
-// You can write your code in this editor
-y -= yoff;
+/// @description drawing is done from the shots renderer
 draw_self();
-y += yoff;

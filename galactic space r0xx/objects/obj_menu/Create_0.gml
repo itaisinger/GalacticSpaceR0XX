@@ -162,7 +162,7 @@ function draw_leaderboard(_x,_y,margin,top_text,ranks,names,scores)
 
 #endregion
 
-global.version = 1.12;
+global.version = 1.13;
 window_set_fullscreen(global.fullscreen);
 game_set_speed(20,gamespeed_fps);
 

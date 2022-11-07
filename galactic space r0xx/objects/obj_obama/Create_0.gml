@@ -1,4 +1,5 @@
 event_inherited();
+
 alarm[0] = 1;
 global.obama_dust_destroy = 0;
 

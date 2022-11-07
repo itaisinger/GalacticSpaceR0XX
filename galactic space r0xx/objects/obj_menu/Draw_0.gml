@@ -3,6 +3,11 @@ var _xmid = camera_get_view_width(view_get_camera(view_current))/2;
 var _ymid = camera_get_view_height(view_get_camera(view_current))/2;
 var _yfull = camera_get_view_height(view_get_camera(view_current));
 
+//var _sh = sh_bloom;
+//shader_set(_sh)
+//shader_set_uniform_f_array(shader_get_uniform(_sh,"resolution"),[1280,1])
+//shader_set_uniform_f(shader_get_uniform(_sh,"blur_amount"),0.3)
+
 //planet
 draw_sprite_ext(sprite_index,image_index,_xmid,_ymid*0.6,2,2,0,c_white,0.9);
 
@@ -47,4 +52,4 @@ if(menu_current == menu_leaderboards)
 
 #endregion
 
-
+//shader_reset();

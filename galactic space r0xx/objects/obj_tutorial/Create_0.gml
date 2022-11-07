@@ -17,6 +17,7 @@ function end_tutorial()
 	global.tutorial_active = 0;
 	obj_game.alarm[0] = 1;
 	
+	//controls
 	var _x = display_get_gui_width()/2;
 	var _y = 70;
 	with(instance_create_depth(_x,_y,0,obj_text_fade))
@@ -30,6 +31,21 @@ function end_tutorial()
 		font = font_continue;
 		halign = fa_center;
 		other.controls_text = self;
+	}
+	
+	//disable
+	var _x = display_get_gui_width()/2;
+	var _y = display_get_gui_height() - 45;
+	with(instance_create_depth(_x,_y,0,obj_text_fade))
+	{
+		is_gui = 1;
+		text = "you can disable the tutorial\nfrom the settings menu";
+		time = room_speed*9;
+		image_alpha = -3;
+		o_width = 0;
+		font = font_continue;
+		halign = fa_center;
+		//other.controls_text = self;
 	}
 	
 	instance_destroy();

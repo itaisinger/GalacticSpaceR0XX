@@ -12,8 +12,9 @@ alarm[0] = score_timer;
 
 //create essential objs
 var _lay = layer_get_id("main");
-instance_create_layer(0,0,_lay,obj_player)
-instance_create_layer(0,0,_lay,obj_camera)
+instance_create_layer(0,0,_lay,obj_player);
+instance_create_layer(0,0,_lay,obj_camera);
+//instance_create_layer(0,0,_lay,obj_shots_renderer);
 
 if(global.do_tutorial)
 {
