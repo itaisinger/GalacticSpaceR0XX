@@ -1,0 +1,7 @@
+
+different elements on the screen will function as different objects, using collision with a mouse object to click them.
+
+////mouse choosing
+there is a global var called focus_inst.
+whenever an instance is asking the attention of the user, set the var to that instance.
+other objects will ignore inputs when the var is not empty.

@@ -7,7 +7,11 @@ switch(state)
 	
 	//transition to death state
 	if(global.player_inst.state == STATES.dead)
+	{
+		trans_prec = 0;
 		state = UI_STATES.death;
+		dead = 1;
+	}
 	
 	break;
 	#endregion
@@ -16,16 +20,21 @@ switch(state)
 	case UI_STATES.death:
 	
 	//progress transition precent into death screen
-	trans_prec = lerp(trans_prec,1,0.01 + 0.02 * keyboard_check(vk_space));
-	trans_prec = approach(trans_prec,1,0.0001);
+	//trans_prec = lerp(trans_prec,1,0.01 + 0.02 * keyboard_check(vk_space));
+	trans_prec = lerp(trans_prec,1,0.0023 + 0.02 * keyboard_check(vk_space));
+	//trans_prec = approach(trans_prec,1,0.0001);
+	trans_prec = approach(trans_prec,1,0.004);
 	
 	//quit back to main menu
 	var _not_typing_score = !instance_exists(obj_upload_score) or (instance_exists(obj_upload_score) and !obj_upload_score.active)
 	if(trans_prec > 0.9 and keyboard_check_pressed(vk_space) and _not_typing_score)
+	{
+		dead = 0;
 		obj_transition.transition(rm_menu);
+	}
 	
 	//evaluate death curve
-	for(var i=0; i < 6; i++)
+	for(var i=0; i < 6; i++)	//was 6
 	{
 		var _cur = animcurve_get(cur_death_ui);
 		var _channel = animcurve_get_channel(_cur,i);
@@ -44,9 +53,13 @@ switch(state)
 		trans_prec = lerp(trans_prec,1,0.01);
 		trans_prec = approach(trans_prec,1,0.001);
 		
+		//finsh transition
 		if(trans_prec == 1)
+		{
+			trans_prec = 0;
 			state = UI_STATES.natural;
-			
+		}
+		
 		//evaluate tutorial curve
 		for(var i=0; i < 2; i++)
 		{

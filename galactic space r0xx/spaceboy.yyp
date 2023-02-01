@@ -215,6 +215,7 @@
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":1,},
     {"id":{"name":"sfx_hitmark_2","path":"sounds/sfx_hitmark_2/sfx_hitmark_2.yy",},"order":31,},
     {"id":{"name":"spr_homing_unlock2","path":"sprites/spr_homing_unlock2/spr_homing_unlock2.yy",},"order":28,},
+    {"id":{"name":"cur_death_ui_old","path":"animcurves/cur_death_ui_old/cur_death_ui_old.yy",},"order":4,},
     {"id":{"name":"anmCrvLLCoinCurve","path":"animcurves/anmCrvLLCoinCurve/anmCrvLLCoinCurve.yy",},"order":0,},
     {"id":{"name":"obj_shot_enemy","path":"objects/obj_shot_enemy/obj_shot_enemy.yy",},"order":8,},
     {"id":{"name":"spr_keys_turn","path":"sprites/spr_keys_turn/spr_keys_turn.yy",},"order":13,},

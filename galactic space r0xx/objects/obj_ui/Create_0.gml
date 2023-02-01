@@ -17,6 +17,9 @@ bars_gap = bars_gap_max;			//distance between the hp and the upgrade bars.
 bars_anim_prec = -1;	//approaches 1 when isnt -1.
 
 state = UI_STATES.tutorial;
+if(!global.tutorial_active)
+	state = UI_STATES.natural;
+
 tutorial_done = 0;
 
 function flash_hp(index)
@@ -38,12 +41,12 @@ list_bars = -1;
 list_flash_a = ds_list_create();
 
 enum UI_ELEM{
-	overlay,
 	scor,
 	bars,
+	overlay,
 	continu,
-	highscore,
 	name,
+	highscore,
 }
 
 enum UI_STATES{
